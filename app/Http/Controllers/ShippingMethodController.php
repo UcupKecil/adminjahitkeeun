@@ -72,7 +72,7 @@ class ShippingMethodController extends Controller
 
         $extension = $request->file('cover')->getClientOriginalExtension();
         $cover = date('YmdHis').'.'.$extension;
-        $path = base_path('public/photo-shippingmethod');
+        $path = '/home/mvlrzxvo/subdomain/api.tepat.co.id/photo-shippingmethod/';
         $request->file('cover')->move($path, $cover);
 
         if($request->name == NULL) {
@@ -116,7 +116,7 @@ class ShippingMethodController extends Controller
 
             $extension = $request->file('coverEdit')->getClientOriginalExtension();
             $name = date('YmdHis').''.$id.'.'.$extension;
-            $path = base_path('public/photo-shippingmethod');
+            $path = '/home/mvlrzxvo/subdomain/api.tepat.co.id/photo-shippingmethod/';
             $request->file('coverEdit')->move($path, $name);
 
         if($request->name == NULL) {

@@ -70,9 +70,10 @@ class PaymentMethodController extends Controller
     public function store(Request $request)
     {
 
+
         $extension = $request->file('cover')->getClientOriginalExtension();
         $cover = date('YmdHis').'.'.$extension;
-        $path = base_path('public/photo-paymentmethod');
+        $path = '/home/mvlrzxvo/subdomain/api.tepat.co.id/photo-paymentmethod/';
         $request->file('cover')->move($path, $cover);
 
         if($request->name == NULL) {
@@ -116,7 +117,7 @@ class PaymentMethodController extends Controller
 
             $extension = $request->file('coverEdit')->getClientOriginalExtension();
             $name = date('YmdHis').''.$id.'.'.$extension;
-            $path = base_path('public/photo-paymentmethod');
+            $path = '/home/mvlrzxvo/subdomain/api.tepat.co.id/photo-paymentmethod/';
             $request->file('coverEdit')->move($path, $name);
 
         if($request->name == NULL) {

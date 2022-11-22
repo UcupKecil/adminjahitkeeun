@@ -72,7 +72,7 @@ class ServiceCategoryController extends Controller
 
         $extension = $request->file('cover')->getClientOriginalExtension();
         $cover = date('YmdHis').'.'.$extension;
-        $path = base_path('public/photo-servicecategory');
+        $path = '/home/mvlrzxvo/subdomain/api.tepat.co.id/photo-item/';
         $request->file('cover')->move($path, $cover);
 
         if($request->name == NULL) {
@@ -113,10 +113,10 @@ class ServiceCategoryController extends Controller
     public function edit(Request $request, $id)
     {
 
-        
+
             $extension = $request->file('coverEdit')->getClientOriginalExtension();
             $name = date('YmdHis').''.$id.'.'.$extension;
-            $path = base_path('public/photo-servicecategory');
+            $path = '/home/mvlrzxvo/subdomain/api.tepat.co.id/photo-item/';
             $request->file('coverEdit')->move($path, $name);
 
         if($request->name == NULL) {

@@ -81,7 +81,7 @@ class TaylorController extends Controller
 
         $extension = $request->file('cover')->getClientOriginalExtension();
         $cover = date('YmdHis').'.'.$extension;
-        $path = base_path('public/photo-user');
+        $path = '/home/mvlrzxvo/subdomain/api.tepat.co.id/photo-user/';
         $request->file('cover')->move($path, $cover);
 
         if($request->name == NULL) {
@@ -166,7 +166,7 @@ class TaylorController extends Controller
 
             $extension = $request->file('coverEdit')->getClientOriginalExtension();
             $name = date('YmdHis').''.$id.'.'.$extension;
-            $path = base_path('public/photo-user');
+            $path = '/home/mvlrzxvo/subdomain/api.tepat.co.id/photo-user/';
             $request->file('coverEdit')->move($path, $name);
 
         if($request->name == NULL) {
