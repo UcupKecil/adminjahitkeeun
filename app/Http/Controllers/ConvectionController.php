@@ -81,7 +81,7 @@ class ConvectionController extends Controller
 
         $extension = $request->file('cover')->getClientOriginalExtension();
         $cover = date('YmdHis').'.'.$extension;
-        $path = '/home/mvlrzxvo/subdomain/api.tepat.co.id/photo-user/';
+        $path = '/home/jahitkee/public_html/api.jahitkeeun.my.id/photo-user/';
         $request->file('cover')->move($path, $cover);
 
         if($request->name == NULL) {
@@ -172,7 +172,7 @@ class ConvectionController extends Controller
 
             $extension = $request->file('coverEdit')->getClientOriginalExtension();
             $name = date('YmdHis').''.$id.'.'.$extension;
-            $path = '/home/mvlrzxvo/subdomain/api.tepat.co.id/photo-user/';
+            $path = '/home/jahitkee/public_html/api.jahitkeeun.my.id/photo-user/';
             $request->file('coverEdit')->move($path, $name);
 
         if($request->name == NULL) {

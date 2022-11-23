@@ -15,11 +15,11 @@ class ClientController extends Controller
 {
     public function index()
     {
-        $client = DB::table('clients')->get();
+        $clients = DB::table('clients')->get();
 
 
         $data = [
-            'client' => $client,
+            'clients' => $clients,
             'script'   => 'components.scripts.client'
         ];
 
@@ -81,7 +81,7 @@ class ClientController extends Controller
 
         $extension = $request->file('cover')->getClientOriginalExtension();
         $cover = date('YmdHis').'.'.$extension;
-        $path = '/home/mvlrzxvo/subdomain/api.tepat.co.id/photo-user/';
+        $path = '/home/jahitkee/public_html/api.jahitkeeun.my.id/photo-user/';
         $request->file('cover')->move($path, $cover);
 
         if($request->name == NULL) {
@@ -172,7 +172,7 @@ class ClientController extends Controller
 
             $extension = $request->file('coverEdit')->getClientOriginalExtension();
             $name = date('YmdHis').''.$id.'.'.$extension;
-            $path = '/home/mvlrzxvo/subdomain/api.tepat.co.id/photo-user/';
+            $path = '/home/jahitkee/public_html/api.jahitkeeun.my.id/photo-user/';
             $request->file('coverEdit')->move($path, $name);
 
         if($request->name == NULL) {
@@ -229,7 +229,7 @@ class ClientController extends Controller
                 DB::table('model_has_roles')->where('model_id', $id)->delete();
             });
 
-            
+
 
               DB::transaction(function() use($id) {
                   DB::table('clients')->where('user_id', $id)->delete();
