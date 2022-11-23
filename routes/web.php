@@ -14,6 +14,7 @@ Route::group([
         require_once('includes/paymentmethod.php');
         require_once('includes/addresslabel.php');
         require_once('includes/client.php');
+        require_once('includes/taylor.php');
         require_once('includes/convection.php');
         require_once('includes/pengguna.php');
         require_once('includes/role.php');
