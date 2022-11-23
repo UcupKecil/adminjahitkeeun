@@ -130,7 +130,13 @@ class ConvectionController extends Controller
                         'status' => '1',
                         'created_at' => date('Y-m-d H:i:s'),
 
-                    ])->assignRole('convection');
+                    ]);
+
+                    DB::table('model_has_roles')->insert([
+                        'role_id' => 3,
+                        'model_type' => 'App\User',
+                        'model_id' => $user->id
+                    ]);
 
 
                     DB::table('convections')->insert([
@@ -218,6 +224,10 @@ class ConvectionController extends Controller
               DB::transaction(function() use($id) {
                   DB::table('convections')->where('user_id', $id)->delete();
               });
+              DB::transaction(function() use($id) {
+                DB::table('model_has_roles')->where('model_id', $id)->delete();
+            });
+
               DB::transaction(function() use($id) {
                 DB::table('users')->where('id', $id)->delete();
                 });

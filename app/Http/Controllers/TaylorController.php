@@ -130,7 +130,13 @@ class TaylorController extends Controller
                         'status' => '1',
                         'created_at' => date('Y-m-d H:i:s'),
 
-                    ])->assignRole('taylor');
+                    ]);
+
+                    DB::table('model_has_roles')->insert([
+                        'role_id' => 2,
+                        'model_type' => 'App\User',
+                        'model_id' => $user->id
+                    ]);
 
 
                     DB::table('taylors')->insert([
@@ -218,6 +224,12 @@ class TaylorController extends Controller
               DB::transaction(function() use($id) {
                   DB::table('taylors')->where('user_id', $id)->delete();
               });
+              
+              DB::transaction(function() use($id) {
+                DB::table('model_has_roles')->where('model_id', $id)->delete();
+            });
+
+
               DB::transaction(function() use($id) {
                 DB::table('users')->where('id', $id)->delete();
                 });

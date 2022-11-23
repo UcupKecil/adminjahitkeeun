@@ -130,7 +130,13 @@ class ClientController extends Controller
                         'status' => '1',
                         'created_at' => date('Y-m-d H:i:s'),
 
-                    ])->assignRole('client');
+                    ]);
+
+                    DB::table('model_has_roles')->insert([
+                        'role_id' => 1,
+                        'model_type' => 'App\User',
+                        'model_id' => $user->id
+                    ]);
 
 
                     DB::table('clients')->insert([
@@ -218,6 +224,12 @@ class ClientController extends Controller
             DB::transaction(function() use($id) {
                 DB::table('users')->where('id', $id)->delete();
             });
+
+            DB::transaction(function() use($id) {
+                DB::table('model_has_roles')->where('model_id', $id)->delete();
+            });
+
+            
 
               DB::transaction(function() use($id) {
                   DB::table('clients')->where('user_id', $id)->delete();
